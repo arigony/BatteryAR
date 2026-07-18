@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#050914">
+  <meta name="description" content="BatteryAR — experiência WebAR do Química em Loop para explorar baterias de íons de lítio e sódio.">
+  <title>BatteryAR | Química em Loop</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="importmap">
+    {"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"}}
+  </script>
+</head>
+<body>
+  <div class="grid-bg" aria-hidden="true"></div>
+  <header class="topbar">
+    <a class="brand" href="https://quimica-em-loop.arigony.chatgpt.site/" aria-label="Voltar ao portal Química em Loop">
+      <span class="atom-logo"><i></i><i></i><i></i><b></b></span>
+      <span>QUÍMICA <strong>EM LOOP</strong></span>
+    </a>
+    <div class="project-mark"><span>EXPERIÊNCIA 3D + AR</span><b>BatteryAR</b></div>
+    <a class="portal-link" href="https://quimica-em-loop.arigony.chatgpt.site/">PORTAL <span>↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero-copy">
+      <p class="eyebrow"><i></i> ENERGIA EM MOVIMENTO</p>
+      <h1>UMA BATERIA.<br><em>POR DENTRO.</em></h1>
+      <p class="intro">Posicione uma célula 3D sobre a mesa e acompanhe o caminho dos íons e elétrons durante a carga e a descarga.</p>
+      <div class="chemistry-toggle" role="group" aria-label="Selecione a bateria">
+        <button class="active" data-chem="li" aria-pressed="true"><span>Li</span><b>ÍON-LÍTIO</b><small>ENERGIA COMPACTA</small></button>
+        <button data-chem="na" aria-pressed="false"><span>Na</span><b>ÍON-SÓDIO</b><small>RECURSOS ABUNDANTES</small></button>
+      </div>
+    </section>
+
+    <section class="experience" aria-label="Simulação tridimensional da bateria">
+      <div id="scene" class="scene" role="img" aria-label="Modelo tridimensional interativo de uma bateria em corte">
+        <div class="scene-topline"><span><i class="live-dot"></i> MODELO CONCEITUAL</span><span id="sceneMode">3D INTERATIVO</span></div>
+        <div class="scene-hint" id="sceneHint">ARRASTE PARA GIRAR · PINÇA PARA AMPLIAR</div>
+        <button class="reset-view" id="resetView" aria-label="Restaurar posição do modelo">↺</button>
+        <div class="ar-guidance" id="arGuidance" aria-live="polite">Mova o celular lentamente até encontrar uma superfície. Toque para posicionar a bateria.</div>
+      </div>
+
+      <aside class="controls">
+        <div class="panel-heading"><div><small>PAINEL DA CÉLULA</small><strong id="chemTitle">ÍON-LÍTIO</strong></div><span id="chemSymbol">Li⁺</span></div>
+        <div class="cycle-toggle" role="group" aria-label="Ciclo da bateria">
+          <button class="active" data-cycle="discharge" aria-pressed="true">DESCARGA</button>
+          <button data-cycle="charge" aria-pressed="false">CARGA</button>
+        </div>
+        <div class="process-card"><span>CONVERSÃO DE ENERGIA</span><b id="energyFlow">QUÍMICA → ELÉTRICA</b><small id="redox">Oxidação no ânodo · redução no cátodo</small></div>
+        <label class="slider-label" for="explode"><span>VISTA EXPLODIDA</span><output id="explodeOut">0%</output></label>
+        <input id="explode" class="range" type="range" min="0" max="100" value="0">
+        <label class="slider-label" for="speed"><span>VELOCIDADE</span><output id="speedOut">1,0×</output></label>
+        <input id="speed" class="range" type="range" min="0.5" max="2" step="0.5" value="1">
+        <button class="pause" id="pause"><span>Ⅱ</span> PAUSAR ANIMAÇÃO</button>
+        <div id="arButtonSlot" class="ar-slot"></div>
+        <p class="compatibility" id="compatibility">O botão AR aparece em dispositivos compatíveis. O modo 3D funciona em todos os navegadores modernos.</p>
+      </aside>
+    </section>
+
+    <section class="component-section" id="componentes">
+      <div class="section-title"><div><p class="eyebrow"><i></i> TOQUE PARA INVESTIGAR</p><h2>CAMADAS QUE TRABALHAM JUNTAS.</h2></div><p>Selecione um componente na cena ou nos cartões. A vista explodida revela a arquitetura sem perder a relação entre as partes.</p></div>
+      <div class="component-grid" id="componentGrid"></div>
+      <article class="component-detail" id="componentDetail" aria-live="polite">
+        <div class="detail-number" id="detailNumber">01</div>
+        <div><small>COMPONENTE SELECIONADO</small><h3 id="detailTitle">Ânodo</h3><p id="detailText"></p><strong id="detailMaterial"></strong></div>
+        <div class="micro-animation" aria-hidden="true"><span class="micro-ion">Li⁺</span><i></i><span class="micro-electron">e⁻</span></div>
+      </article>
+    </section>
+
+    <section class="compare-section">
+      <div class="section-title"><div><p class="eyebrow"><i></i> COMPARE SEM SIMPLIFICAR</p><h2>LÍTIO OU SÓDIO?</h2></div><p>Não existe uma bateria universalmente superior. A melhor escolha depende da aplicação e dos critérios considerados.</p></div>
+      <div class="compare-grid">
+        <article><div class="element li">Li</div><h3>ÍON-LÍTIO</h3><dl><div><dt>Energia típica*</dt><dd>150–280 Wh/kg</dd></div><div><dt>Ânodo comum</dt><dd>Grafite</dd></div><div><dt>Destaque</dt><dd>Alta densidade de energia</dd></div><div><dt>Aplicações</dt><dd>Portáteis e veículos elétricos</dd></div></dl></article>
+        <span class="versus">×</span>
+        <article><div class="element na">Na</div><h3>ÍON-SÓDIO</h3><dl><div><dt>Energia típica*</dt><dd>100–175 Wh/kg</dd></div><div><dt>Ânodo comum</dt><dd>Carbono duro</dd></div><div><dt>Destaque</dt><dd>Sódio muito abundante</dd></div><div><dt>Aplicações</dt><dd>Rede, backup e mobilidade urbana</dd></div></dl></article>
+      </div>
+      <p class="data-note">*Faixas indicativas em nível de célula. Variam com química, fabricante, projeto e condição de operação.</p>
+    </section>
+
+    <section class="loop-signature">
+      <p>QUÍMICA EM LOOP</p>
+      <h2>DA IDEIA AO PROMPT.<br>DO PROMPT À SIMULAÇÃO.<br><em>DA SIMULAÇÃO À APRENDIZAGEM.</em></h2>
+      <div class="audit-flow"><span>IDEIA HUMANA</span><i>→</i><span>PROTÓTIPO COM IA</span><i>→</i><span>AUDITORIA HUMANA</span><i>→</i><span>CONHECIMENTO</span></div>
+    </section>
+  </main>
+
+  <footer><div class="brand"><span class="atom-logo"><i></i><i></i><i></i><b></b></span><span>QUÍMICA <strong>EM LOOP</strong></span></div><p>BatteryAR · experiência educacional conceitual · 2026</p><a href="#">VOLTAR AO TOPO ↑</a></footer>
+  <noscript>Esta experiência precisa de JavaScript para exibir o modelo tridimensional.</noscript>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
