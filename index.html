@@ -86,6 +86,30 @@
   </main>
 
   <footer><div class="brand"><span class="atom-logo"><i></i><i></i><i></i><b></b></span><span>QUÍMICA <strong>EM LOOP</strong></span></div><p>BatteryAR · experiência educacional conceitual · 2026</p><a href="#">VOLTAR AO TOPO ↑</a></footer>
+
+  <div class="ar-overlay" id="arOverlay" aria-live="polite">
+    <div class="ar-overlay-top">
+      <div class="ar-mini-brand"><span class="atom-logo"><i></i><i></i><i></i><b></b></span><span>BatteryAR<small>QUÍMICA EM LOOP</small></span></div>
+      <span class="ar-live"><i></i> AR ATIVO</span>
+    </div>
+    <div class="ar-instruction" id="arInstruction">
+      <strong>ENCONTRE UMA SUPERFÍCIE</strong>
+      <span>Mova o celular lentamente. Quando o círculo aparecer, toque para posicionar a bateria.</span>
+    </div>
+    <div class="ar-overlay-bottom">
+      <div class="ar-compact-controls">
+        <div role="group" aria-label="Química da bateria em realidade aumentada">
+          <button class="active" data-ar-chem="li" aria-pressed="true">Li⁺</button>
+          <button data-ar-chem="na" aria-pressed="false">Na⁺</button>
+        </div>
+        <div role="group" aria-label="Ciclo da bateria em realidade aumentada">
+          <button class="active" data-ar-cycle="discharge" aria-pressed="true">DESCARGA</button>
+          <button data-ar-cycle="charge" aria-pressed="false">CARGA</button>
+        </div>
+      </div>
+      <div id="arExitSlot" class="ar-exit-slot"></div>
+    </div>
+  </div>
   <noscript>Esta experiência precisa de JavaScript para exibir o modelo tridimensional.</noscript>
   <script type="module" src="app.js"></script>
 </body>
