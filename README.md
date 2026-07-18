@@ -14,6 +14,7 @@ Experiência educacional 3D e WebAR para explorar, em escala conceitual, o funci
 - rotação por arraste e escala por gesto de pinça sem perder a âncora no ambiente;
 - reposicionamento e restauração da vista por controles dedicados;
 - legenda científica para íons, elétrons e polaridade dos eletrodos;
+- identificação direta das partículas com `Li⁺`/`Na⁺` e `e⁻`;
 - seleção de componentes diretamente no modelo 3D e no modo AR, com etiqueta, material e explicação contextual;
 - explicações diferentes para carga e descarga;
 - modo 3D com rotação e zoom como fallback universal;
