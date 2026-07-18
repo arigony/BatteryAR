@@ -48,6 +48,13 @@
           <button data-cycle="charge" aria-pressed="false">CARGA</button>
         </div>
         <div class="process-card"><span>CONVERSÃO DE ENERGIA</span><b id="energyFlow">QUÍMICA → ELÉTRICA</b><small id="redox">Oxidação no ânodo · redução no cátodo</small></div>
+        <div class="particle-legend" aria-label="Legenda das partículas e dos eletrodos">
+          <span><i class="legend-ion"></i><b id="legendIon">Li⁺</b> no eletrólito</span>
+          <span><i class="legend-electron"></i><b>e⁻</b> no circuito externo</span>
+          <span><i class="legend-negative">−</i> eletrodo negativo</span>
+          <span><i class="legend-positive">+</i> eletrodo positivo</span>
+          <small>Ânodo e cátodo são nomeados pela operação de descarga.</small>
+        </div>
         <label class="slider-label" for="explode"><span>VISTA EXPLODIDA</span><output id="explodeOut">0%</output></label>
         <input id="explode" class="range" type="range" min="0" max="100" value="0">
         <label class="slider-label" for="speed"><span>VELOCIDADE</span><output id="speedOut">1,0×</output></label>
@@ -96,7 +103,20 @@
       <strong>ENCONTRE UMA SUPERFÍCIE</strong>
       <span>Mova o celular lentamente. Quando o círculo aparecer, toque para posicionar a bateria.</span>
     </div>
+    <article class="ar-part-card" id="arPartCard" aria-live="polite">
+      <button id="arPartClose" aria-label="Fechar explicação">×</button>
+      <small>COMPONENTE SELECIONADO</small>
+      <strong id="arPartTitle">Ânodo</strong>
+      <p id="arPartText"></p>
+      <b id="arPartMaterial"></b>
+    </article>
     <div class="ar-overlay-bottom">
+      <div class="ar-particle-legend" aria-label="Legenda da animação em realidade aumentada">
+        <span><i class="legend-ion"></i><b id="arLegendIon">Li⁺</b> ÍON</span>
+        <span><i class="legend-electron"></i><b>e⁻</b> ELÉTRON</span>
+        <span><i class="legend-negative">−</i> NEGATIVO</span>
+        <span><i class="legend-positive">+</i> POSITIVO</span>
+      </div>
       <div class="ar-compact-controls">
         <div role="group" aria-label="Química da bateria em realidade aumentada">
           <button class="active" data-ar-chem="li" aria-pressed="true">Li⁺</button>
@@ -106,6 +126,11 @@
           <button class="active" data-ar-cycle="discharge" aria-pressed="true">DESCARGA</button>
           <button data-ar-cycle="charge" aria-pressed="false">CARGA</button>
         </div>
+      </div>
+      <div class="ar-tools">
+        <button id="arExplode" aria-pressed="false">SEPARAR CAMADAS</button>
+        <button id="arReset">RESTAURAR VISTA</button>
+        <button id="arReposition">REPOSICIONAR</button>
       </div>
       <div id="arExitSlot" class="ar-exit-slot"></div>
     </div>
